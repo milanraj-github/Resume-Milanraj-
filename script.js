@@ -34,4 +34,43 @@ $(function(){
     window.print();
   });
 
+  // --- Intro landing behavior ---
+  // Hide resume content on first load so intro is the only visible section
+  var $resume = $("#resume");
+  var $intro = $(".intro-card");
+  if ($resume.length && $intro.length) {
+    $resume.hide();
+    $intro.show();
+  }
+
+  // When user clicks 'View Resume', hide intro and show resume
+  $("#viewResumeBtn").on('click', function(e){
+    e.preventDefault();
+    // update hash so direct links/bookmarks work
+    location.hash = '#resume';
+  });
+
+  // showResume helper
+  function showResume() {
+    if (!($intro.length && $resume.length)) return;
+    if ($intro.is(':visible')) {
+      $intro.slideUp(220, function(){
+        $resume.slideDown(300);
+        setTimeout(function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); }, 60);
+      });
+    } else {
+      $resume.show();
+    }
+  }
+
+  // If page loads with #resume, show resume instead of intro
+  if (location.hash === '#resume') {
+    showResume();
+  }
+
+  // Handle future hash changes (e.g., clicking nav link from other pages)
+  $(window).on('hashchange', function(){
+    if (location.hash === '#resume') showResume();
+  });
+
 });
