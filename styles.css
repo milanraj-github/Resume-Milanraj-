@@ -83,10 +83,52 @@ html,body{height:100%;margin:0;background:var(--bg);font-family:Inter, ui-sans-s
 
 /* Bio page */
 .bio-page{background:var(--page-bg);padding:16px;border-radius:6px;margin-top:14px;box-shadow:0 8px 24px rgba(13,24,53,0.04)}
-.bio-table{width:100%;border-collapse:collapse}
-.bio-table th{width:220px;text-align:left;padding:10px;background:#fbfcff;color:var(--muted);font-weight:600;font-size:13px}
-.bio-table td{padding:10px;border-bottom:1px solid #f1f4fb;color:var(--muted);font-size:13px}
-.bio-grid{display:block;margin-top:10px}
+
+.bio-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  margin-bottom: 18px;
+}
+.bio-table th, .bio-table td {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  color: #222;
+}
+.bio-table th {
+  background: #f5f7fa;
+  color: #1a4fa3;
+  font-weight: 600;
+}
+.bio-section-title {
+  color: #1565c0;
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-top: 18px;
+  font-family: inherit;
+}
+
+/* Intro card (landing) */
+.intro-card{
+  background: var(--page-bg);
+  padding: 28px 22px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(13,24,53,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(70vh - 20px);
+  text-align: center;
+}
+.intro-title{color:var(--accent);font-size:1.6rem;margin:0}
+.intro-text{color:var(--muted);max-width:760px;margin:0}
+.intro-links{display:flex;gap:10px;margin-top:8px}
+.btn.outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
 
 /* smaller typography for compact look on print */
 @media (min-width:1200px) {
@@ -109,4 +151,52 @@ html,body{height:100%;margin:0;background:var(--bg);font-family:Inter, ui-sans-s
   .header{flex-direction:column;align-items:flex-start}
   .contact{text-align:left;margin-top:8px}
   .nav{padding:10px}
+}
+/* ---- INTRO PAGE ---- */
+
+.intro-card {
+  background: var(--page-bg);
+  padding: 18px 20px;
+  border-radius: 6px;
+  box-shadow: 0 8px 22px rgba(13,24,53,0.06);
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+
+.intro-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.intro-text {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 6px 0;
+}
+
+.intro-links {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 1.6px solid var(--accent);
+  color: var(--accent);
+}
+
+/* Remove underlines for intro buttons/links and prevent hover underlines */
+.intro-links a,
+.btn {
+  text-decoration: none;
+}
+.intro-links a:hover,
+.btn:hover,
+.intro-links a:focus,
+.btn:focus {
+  text-decoration: none;
 }
